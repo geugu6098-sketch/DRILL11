@@ -7,7 +7,8 @@ states.
 
 - Left/Right: run in the selected direction; release both keys to stop.
 - Space: wake up from SLEEP.
-- A: start AUTORUN while IDLE. AUTORUN moves faster, appears larger, and
+- A: start AUTORUN while IDLE or RUN. When started from RUN, the current
+  direction is retained. AUTORUN moves faster, appears larger, and
   reverses direction at either screen edge. Pressing a direction key cancels
   AUTORUN and continues in that direction with RUN.
 - Escape: quit.
@@ -23,6 +24,7 @@ stateDiagram-v2
     SLEEP --> RUN: Direction key
     RUN --> IDLE: All direction keys released
     IDLE --> AUTORUN: A
+    RUN --> AUTORUN: A / keep current direction
     AUTORUN --> AUTORUN: Screen edge / reverse direction
     AUTORUN --> RUN: Direction key / cancel
 ```
