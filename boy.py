@@ -84,7 +84,7 @@ class Boy:
                 },
                 {
                     'trigger': 'start_auto_run',
-                    'source': 'IDLE',
+                    'source': ['IDLE', 'RUN'],
                     'dest': 'AUTORUN',
                 },
                 {
