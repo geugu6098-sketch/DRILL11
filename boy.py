@@ -123,6 +123,10 @@ class Boy:
     def enter_auto_run(self):
         self.auto_run.enter(self)
 
+    def request_auto_run(self):
+        if self.state in ('IDLE', 'RUN'):
+            self.start_auto_run()
+
     def reset_run_animation(self):
         now = time.monotonic()
         self.frame = 0

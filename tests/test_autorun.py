@@ -70,6 +70,13 @@ class AutoRunTests(unittest.TestCase):
         self.assertEqual(self.boy.state, 'RUN')
         self.assertEqual(self.boy.face_dir, -1)
 
+    def test_auto_run_can_start_from_run_and_keeps_facing_direction(self):
+        self.boy.press_direction(-1)
+        self.boy.request_auto_run()
+
+        self.assertEqual(self.boy.state, 'AUTORUN')
+        self.assertEqual(self.boy.face_dir, -1)
+
 
 if __name__ == '__main__':
     unittest.main()
