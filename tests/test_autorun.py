@@ -95,6 +95,15 @@ class AutoRunTests(unittest.TestCase):
 
         self.assertEqual(self.boy.state, 'SLEEP')
 
+    def test_auto_run_request_keeps_current_auto_run_active(self):
+        self.boy.request_auto_run()
+        self.clock = 10.25
+        self.boy.request_auto_run()
+        self.boy.update()
+
+        self.assertEqual(self.boy.state, 'AUTORUN')
+        self.assertEqual(self.boy.x, 520)
+
 
 if __name__ == '__main__':
     unittest.main()
