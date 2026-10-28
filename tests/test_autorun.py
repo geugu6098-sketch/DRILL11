@@ -82,6 +82,12 @@ class AutoRunTests(unittest.TestCase):
 
         self.assertEqual(self.boy.state, 'AUTORUN')
 
+    def test_auto_run_request_does_not_change_sleep_state(self):
+        self.boy.go_to_sleep()
+        self.boy.request_auto_run()
+
+        self.assertEqual(self.boy.state, 'SLEEP')
+
 
 if __name__ == '__main__':
     unittest.main()
