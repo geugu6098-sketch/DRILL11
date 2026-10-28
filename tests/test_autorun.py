@@ -77,6 +77,13 @@ class AutoRunTests(unittest.TestCase):
         self.assertEqual(self.boy.state, 'AUTORUN')
         self.assertEqual(self.boy.face_dir, -1)
 
+    def test_auto_run_keeps_right_facing_direction_from_run(self):
+        self.boy.press_direction(1)
+        self.boy.request_auto_run()
+
+        self.assertEqual(self.boy.state, 'AUTORUN')
+        self.assertEqual(self.boy.face_dir, 1)
+
     def test_auto_run_still_starts_from_idle(self):
         self.boy.request_auto_run()
 
