@@ -70,6 +70,15 @@ class AutoRunTests(unittest.TestCase):
         self.assertEqual(self.boy.state, 'RUN')
         self.assertEqual(self.boy.face_dir, -1)
 
+    def test_run_continues_in_pressed_direction_after_auto_run_cancel(self):
+        self.boy.request_auto_run()
+        self.boy.press_direction(-1)
+        self.clock = 10.5
+        self.boy.update()
+
+        self.assertEqual(self.boy.state, 'RUN')
+        self.assertEqual(self.boy.x, 280)
+
     def test_auto_run_can_start_from_run_and_keeps_facing_direction(self):
         self.boy.press_direction(-1)
         self.boy.request_auto_run()
