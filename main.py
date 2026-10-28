@@ -41,9 +41,8 @@ def handle_events():
         elif (
             event.type == SDL_KEYDOWN
             and event.key == SDLK_a
-            and boy.state == 'IDLE'
         ):
-            boy.start_auto_run()
+            boy.request_auto_run()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_LEFT:
             boy.press_direction(-1)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_RIGHT:
